@@ -1,0 +1,79 @@
+<%- include ('partials/header') %> 
+
+<div class="container" id="oneproduct-container">
+
+        <div class="row" id="title-block">
+        
+            <h2 id="title-1"><%=foundprod.title%></h2>
+
+        </div>
+
+        <div class="row" id="product-row">
+
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 first" id="image-div">
+
+                <div>
+
+                    <img src="/<%=foundprod.imageurl%>" class="img img-responsive full-width mc-auto d-block">
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 first" id="price-div">
+
+                <h3 class="title-2" id="title-2">Price: <%= foundprod.price %> INR</h3>
+
+                <% if(userejs) {%>
+    
+                        <form action="/cart" method="POST">
+
+                            <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+    
+                            <button class="btn" type="submit">Add to Cart</button>
+    
+                            <input type="hidden" name="prodId" value="<%= foundprod._id %>">
+    
+                        </form>
+    
+                <%}%>
+
+            </div>
+        
+        </div>
+
+        <div class="row" id="description-div">
+
+            <h3 id="title-2">Product Description: </h3>
+
+            <p id="description-text"><%=foundprod.description%></p>
+
+        </div>
+
+        <div class="row" id="description-div">
+
+            <% if(userejs && foundprod.user._id.equals(userejs._id)) {%>
+
+                <div class="col" id="editbutton">
+
+                    <a id="edit" href="/products/<%= foundprod._id %>/edit">Edit</a>
+                
+                </div>
+
+                <div class="col" id="del-div">
+
+                    <form action="/products/<%= foundprod._id %>?_method=DELETE" method="POST">
+
+                    <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+
+                    <button class="btn btn-danger" id="deletebutton"><i class="fas fa-trash-alt"></i> Delete</button>
+
+                    </form>
+
+                </div>
+
+            <% } %> 
+
+        </div>
+
+    </div>

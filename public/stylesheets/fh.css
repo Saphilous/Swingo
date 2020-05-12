@@ -1,0 +1,44 @@
+#formheader
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#form
+{
+    padding-top: 100px;
+    padding-left: 10px;
+}
+
+.formelems
+{
+    text-align: center;
+    padding: 10px;
+    border:2px;
+    border-color: gray;
+    border-radius: 5px;
+}
+
+.formelems input.invalid, input.invalid
+{
+    text-align: center;
+    border-color: rgb(255, 115, 115);
+    color: red;
+}
+
+.centred
+{
+    justify-content: center;
+    text-align: center;
+}
+
+.btn
+{
+    background-color: turquoise;
+    color: black;
+}
+
+#bottom
+{
+    margin-bottom: 20px;
+}

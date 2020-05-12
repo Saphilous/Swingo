@@ -1,0 +1,153 @@
+while integrating the database, using {xx} for inner locasl variables like for db.create ({}) resulats in a local property
+
+
+
+
+
+C:\Program Files\MongoDB\Server\4.2\bin
+
+
+
+
+
+
+
+
+
+router.get("/signup", function(req, res)
+{
+    res.render("signupform.ejs")
+})
+
+router.post("/signup", function(req, res)
+{
+    email=req.body.email
+    username=req.body.username
+    password=req.body.password
+    confirmpassword=req.body.confirmpassword
+    if(password=confirmpassword)
+    {
+        newuser= {email:email, username:username, password: password}
+        
+        User.create(newuser, function(err, newus)
+        {
+            if(err)
+            {
+                console.log(err)
+                res.redirect("/signup")
+            }
+            else{
+                console.log("hello")
+                console.log(newus)
+                req.session.userId=newus._id
+                res.redirect("/products")
+            }
+        })
+    }
+})
+
+router.get("/login", function(req, res)
+{
+    res.render("loginform.ejs")
+})
+
+router.post("/login", function(req, res)
+{
+    if(req.body.email && req.body.password)
+    {
+        
+        User.authenticate(req.body.email, req.body.password, function(err, user)
+        {
+            if(err || !user)
+            {
+                console.log("oops!---------------------------------------------------------------------------------------------")
+                res.redirect("/login")
+            }
+            else{
+                console.log("hey there")
+                console.log(user)
+                req.session.userId=user._id
+                res.redirect("/products")
+            }
+        })
+    }
+})
+
+router.get("/logout", function(req, res)
+{
+    req.session.destroy()
+    //to see if the session is really clossed
+   // try {
+      //  console.log(req.session.id)
+   // } catch (TypeError) {
+    //    console.log(TypeError)
+   // }
+    res.redirect("/products")
+})
+
+
+
+
+
+
+
+products----------------------------------------------------------------------------------------------------
+
+
+    Product.find({}, function(err, Products)
+    {
+        if (err)
+        {
+            console.log(err)
+        }
+        else
+        {
+            res.render("products.ejs", {Products:Products})
+        }
+    })
+
+    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+
+    
+
+/* router.get("/cart", function(req, res)
+{
+    const uid=req.session.User._id
+    User.findById(uid, function(err, succ)
+    {
+        if(err)
+        {
+            console.log("Unable to get the user to manage the cart---------------------------------------------------------")
+            console.log(err)
+        }
+        else{
+            User.find({_id:uid}, {cart:1, _id:0}, function(error, cart)
+            {
+                if(error)
+                {
+                    console.log("unable to project the cart 223333333333333333333333333333333333333333333332222222222222")
+                    console.log(error)
+                }
+                else{
+                    res.render("cart.ejs", {cart: cart})
+                }
+            })
+        }
+    })
+}) */
+
+
+
+
+
+
+
+
+
+
+
+            <form action="/create_order" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+                <button type="submit" class="btn">Order Now!</button>
+            </form>

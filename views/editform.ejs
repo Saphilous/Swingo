@@ -1,0 +1,37 @@
+<%- include ('partials/formsheader') %> 
+
+<div class="container" id="form">
+
+<form action="/products/<%=edit._id%>?_method=PUT" method="POST">
+
+    <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+
+    <h3 id="key">Product Name </h3>
+    <br>
+
+    <input type="text" name="title" value="<%= edit.title %>" >
+
+    <br>
+    <h3 id="key">Product Description </h3>
+    <br>
+
+
+    <textarea name="description" id="" cols="100" rows="10"><%= edit.description %> </textarea>
+
+    <h3 id="key">Owner </h3>
+    <br>
+
+    <input type="text" name="owner" value="<%= edit.owner %>">
+
+    <h3 id="key">Price </h3>
+    <br>
+
+    <input type="number" name="price" value="<%=edit.price%>">
+
+    <hr>
+
+    <input class="btn" id="bottom" type="submit">
+
+</form>
+
+</div>

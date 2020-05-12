@@ -1,0 +1,84 @@
+<%- include ('partials/header') %> 
+
+<div class="container" id="mainblock">
+
+    <div class="flash-success">
+        <%=messages%>
+    </div>
+
+<% Products.forEach(product => { %>
+
+    <div class="row" id="block-main">
+
+        <div class="col-md-4 col-sm-6" id="block-1">
+
+            <h2 id="titlethumbnail"><%=product.title%></h2>
+
+            <div class="col-4" id="imgthumb">
+
+                <div id="imgthumb">
+
+                    <img src="/<%=product.imageurl%>" class="img img-responsive full-width" id="imgthumb">
+
+                </div>
+
+            </div>
+
+        </div>
+
+            <div class="description">
+
+                <div class="text">
+
+                    <h3 id="title-2"> Price: <%= product.price %> INR</h3>
+
+                    <h3 id="title-2">Description</h3>
+
+                    <p id="text"><%=product.description%></p>
+                
+                </div>
+
+                <div class="readmore">
+
+                    <div class="readmorein">
+
+                    <a  id="readmore" href="/products/<%= product._id %> ">read more</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+<% }) %>
+
+<section class="pagination">
+    <% if(currentpage !== 1) { %> 
+    <a href="/products/?page=1">1</a>
+    <% } %>
+    
+    <% if(hasPreviousPage && previouspage !== 1) {%>
+        
+        <a href="/products/?page=<%= previouspage %>"> <%= previouspage %>  </a>
+
+        <% } %> 
+
+    <a href="/products/?page=<%= currentpage %>" class="active"> <%= currentpage %>  </a>
+
+    <% if(hasnextpage) {%>
+        
+        <a href="/products/?page=<%= nextpage %>"> <%= nextpage %>  </a>
+
+        <% } %>
+
+    <% if(lastpage !==1 && lastpage !== nextpage && lastpage !== currentpage) {%>
+        
+        <a href="/products/?page=<%= lastpage %>"> <%= lastpage %>  </a>
+
+        <% } %>
+
+</section>
+
+</div>

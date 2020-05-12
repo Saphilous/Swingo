@@ -1,0 +1,40 @@
+<%- include ('partials/header') %> 
+
+<div class="container">
+    <% if (products.length > 0) { %>
+        <ul class="cart__item-list">
+            <% products.forEach(p => { %>
+                <li class="cart__item">
+                    <h1><%= p.productId.title %></h1>
+                    <h2>Quantity: <%= p.quantity %></h2>
+                    <div class="col-4" id="imgthumb">
+
+                        <div id="imgthumb">
+        
+                            <img src="/<%=p.productId.imageurl%>" class="img img-responsive full-width" id="imgthumb">
+        
+                        </div>
+        
+                    </div>
+                    <form action="/cart_delete_item" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+                        <input type="hidden" value="<%= p.productId._id %>" name="prodId">
+                        <button class="btn danger" id="space" type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+        <hr>
+
+        <div class="padex">
+            <a class="btn" id="right" href="/checkout"> Order Now </a>
+            <a class="btn" href="/products">Add More Products</a>
+        </div>
+        
+    <% } else { %>
+        <h1>No Products in Cart!</h1>
+        <div class="padex">
+            <a class="btn" href="/products">Add Products</a>
+        </div>
+    <% } %>
+</div>

@@ -1,0 +1,188 @@
+#nav1
+{
+    background-color: rgba(8, 252, 179, 0.781) !important;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 0px !important;
+    border-right: 0px !important;
+}
+
+.thumbnail
+{
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+#navfluid
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 0px;
+}
+
+#brandname
+{
+    color: red;
+}
+#brandname:hover{
+    color: black;
+}
+
+#navitems
+{
+    color: black;
+}
+#navitems:hover{
+    color:red
+}
+
+.description
+{
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+
+#block-1
+{
+    height: 360px;
+    width: auto;
+}
+
+#imgthumb
+{
+    height: 284px;
+    width: 431px;
+    object-fit: contain;
+}
+
+#text
+{
+    height: 110px;
+    width: inherit;
+    overflow: hidden;
+    font-size: medium;
+}
+
+#block-main
+{
+    height: 360px;
+    width: auto;
+    border-bottom: 3px;
+    border-style: outset;
+}
+
+#title-2
+{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.readmore
+{
+    align-items: center;
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    background-color: #3EFDC4;
+    border-color: black;
+    font-size: large;
+    border: 2px;
+    border-style: outset;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+#readmore
+{
+    color: black;
+    margin-top: 5px;
+}
+
+#readmore:hover{
+    text-decoration: none;
+}
+
+.readmore:hover{
+    background-color: #008080;
+}
+
+.flash-error
+{
+    background-color: rgb(255, 180, 180);
+    color: red;
+    border-radius: 5px;
+    border: 1px;
+    border-color: red;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.flash-success
+{
+    background-color: rgb(174, 255, 154);
+    color: rgb(19, 179, 4);
+    border-radius: 5px;
+    border: 1px;
+    border-color: green;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+}
+
+#flash-form
+{
+    padding-top: 20px;
+}
+
+.readmorein
+{
+    padding-top: 7px;
+}
+
+.pagination a
+{
+    text-decoration: none;
+    padding: 10px;
+    border: 2px;
+    border-radius: 3px;
+    border-color: #3EFDC4;
+    border-style: solid;
+    color: blue;
+    font-size: medium;
+    margin: 1rem;
+}
+
+.pagination a:hover, .pagination a:active, .pagination a.active{
+    color: white;
+    text-decoration: none;
+    background-color: teal;
+}
+.centered
+{
+    text-align: center;
+    margin-top: 15px;
+}
+
+#logbut
+{
+    margin-right: 15px;
+}
+
+#space
+{
+    margin-top: 15px;
+}
+
+.padex
+{
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+#right
+{
+    margin-right: 15px;
+}

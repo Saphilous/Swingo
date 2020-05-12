@@ -1,0 +1,24 @@
+<%- include ('partials/header') %> 
+
+<main>
+    <div class="flash-success">
+        <%= message %> 
+    </div>
+    <% if (orders.length<=0) { %>
+        <h1>Nothing to Show!</h1>
+    <% } else { %>
+        <ul>
+            <% orders.forEach(order => { %>
+                <li>
+                    <h1>Order Id- # <%= order._id %></h1>
+                    <ul>
+                        <% order.products.forEach(p => { %>
+                            <li> <h3><%= p.product.title %> (<%= p.quantity %>)</h3> </li>
+                        <% }); %>
+                    </ul>
+                </li>
+                <a  class="btn" href="/orders/<%= order._id %>">Invoice</a>
+            <% }); %>
+        </ul>
+    <% } %>
+</main>

@@ -1,0 +1,59 @@
+<%- include('partials/formsheader') %>
+
+<div class="contianer" id="form">
+
+   <div class="flash-error">
+      <%=message%>
+   </div>
+
+<form action="/signup" method="POST">
+
+   <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+
+   <div class="formelems">
+
+      <h3 id="key">Email: </h3>
+      <br>
+    
+      <input class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"
+   
+      type="text" name="email" placeholder="enter valid mail id" value="<%=email%>">
+
+   </div>
+
+   <div class="formelems">
+
+      <h3 id="key">User Name: </h3>
+      <br>
+      
+      <input type="text" name="username" placeholder="enter your username">
+   
+   </div>
+   
+   <div class="formelems">
+   
+      <h3 id="key">Password: </h3>
+      <br>
+
+       <input type="password" name="password" placeholder="enter a password">
+   
+   </div>
+   
+   <div class="formelems">
+
+      <h3 id="key">Confirm Password: </h3>
+      <br>
+   
+      <input type="password" name="confirmpassword" placeholder="enter your password again">
+   
+   </div>
+   
+   <div class="formelems">
+      
+   <button class="btn" id="hover1" type="submit"> Submit </button>
+
+   </div>
+
+</form>
+
+</div>

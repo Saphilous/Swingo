@@ -1,0 +1,53 @@
+<%- include ('partials/formsheader') %> 
+
+<div class="flash-error">
+    <%= message %> 
+</div>
+
+<div class="container" id="form">
+    
+    <form action="/products" method="POST" enctype="multipart/form-data">
+
+        <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+
+        <h3 id="key">Product Name </h3>
+        <br>
+
+        <input 
+        
+        class="<%= validationerrors.find(e => e.param ==='productname') ? 'invalid': '' %> "
+        
+        type="text" name="productname" placeholder="product name" value="<%= title %>" aria-required="true">
+
+        <h3 id="key">Add a Picture </h3>
+        <br>
+
+        <input type="file" class="btn" name="imageurl" aria-required="true">
+
+        <br>
+
+        <textarea class="<%= validationerrors.find(e => e.param ==='description') ? 'invalid': '' %> "
+        
+        name="description" id="" cols="100" rows="10" aria-required="true"><%= description %></textarea>
+
+        <h3 id="key">Product Owner: </h3>
+        <br>
+
+        <input class="<%= validationerrors.find(e => e.param ==='owner') ? 'invalid': '' %> "
+        
+        type="text" name="owner" value="<%= owner %>" aria-required="true">
+
+        <h3 id="key">Price</h3>
+        <br>
+
+        <input class="<%= validationerrors.find(e => e.param ==='price') ? 'invalid': '' %> "
+        
+        type="number" name="price" value="<%= price %> >">
+
+        <hr>
+
+        <input class="btn" id="bottom" type="submit" aria-required="true">
+
+    </form>
+
+</div>

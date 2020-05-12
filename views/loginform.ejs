@@ -1,0 +1,48 @@
+<%- include('partials/formsheader') %>
+
+<div class="contianer" id="form">
+
+    <div class="flash-error">
+        <%=message%>
+      </div>
+
+      <div class="flash-success">
+        <%=messages%>
+      </div>
+
+<form  id="flash-form" action="/login" method="POST">
+
+    <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+
+    <div class="formelems">
+
+      <h3 id="key">Email: </h3>
+      <br>
+
+    <input class="<%= validationErrors.find(e => e.param==='email') ? 'invalid' : '' %>"
+    
+    type="text" name="email" placeholder="enter valid mail id" value="<%= email %> ">
+
+  </div>
+
+    <div class="formelems">
+
+      <h3 id="key">Password: </h3>
+      <br>
+
+    <input type="password" name="password" placeholder="enter a password">
+
+  </div>
+
+
+    <div class="centered">
+      
+      <a class="btn" id="logbut" href="/reset-password"> Forgot Password </a>
+
+      <button class="btn" type="submit">Submit</button>
+
+    </div>
+
+ </form>
+
+</div>

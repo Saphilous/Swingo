@@ -22,7 +22,7 @@ router.use(methodOverride("_method"))
 router.get("/products" ,productcontroller.getallproducts)
 
 router.post("/products", [check('productname').isLength({min:4}).withMessage('Enter a Title with 12 or more characters'), check('description').isLength({min:24}).withMessage("Enter a description of 24 or more characters"), 
- check('owner').isLength({min:4}, {max:50}).withMessage('Please enter an Owner name between 4 and 50 characters'), check('price').isNumeric().isLength({min:1}).withMessage('Please enter of price of atleast 1 rupee')],middleware.isloggedin ,productcontroller.postproduct)
+ check('owner').isLength({min:4}, {max:50}).withMessage('Please enter an Owner name between 4 and 50 characters'), check('price').isNumeric().isLength({min:1}).isInt({gt:0}).withMessage('Please enter of price of atleast 1 rupee')],middleware.isloggedin ,productcontroller.postproduct)
 
 router.get("/products/new",middleware.isloggedin , productcontroller.getaddproduct)
 

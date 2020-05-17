@@ -6,27 +6,27 @@
         <%=messages%>
     </div>
 
+ <script>
+     document.onload(alert('If you cant see the images its becuase the Dyno has been inactive! This problem wont occur in a premium version'))
+ </script>
+
 <% Products.forEach(product => { %>
 
     <div class="row" id="block-main">
 
-        <div class="col-md-4 col-sm-6" id="block-1">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="block-1">
 
-            <h2 id="titlethumbnail"><%=product.title%></h2>
+            <h2 id="titlethumbnail">Product Name: <%=product.title%></h2>
 
-            <div class="col-4" id="imgthumb">
+            <div id="imgthumb">
 
-                <div id="imgthumb">
-
-                    <img src="/<%=product.imageurl%>" class="img img-responsive full-width" id="imgthumb">
-
-                </div>
+                <img src="/<%=product.imageurl%>" class="img img-responsive full-width" id="imgthumb">
 
             </div>
 
         </div>
 
-            <div class="description">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 description">
 
                 <div class="text">
 

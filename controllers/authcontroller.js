@@ -11,8 +11,8 @@ var User=require('../Schemamodules/usermod')
 const transporter = nodemailer.createTransport({
     service:'Gmail',
     auth: {
-        user: 'jaswa5237@gmail.com',
-        pass: 'maheshreddy'
+        user: 'xxxxx@gmail.com',
+        pass: 'xxxxxxxx'
     }
 });
 

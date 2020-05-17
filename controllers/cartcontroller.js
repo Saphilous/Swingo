@@ -3,7 +3,7 @@ const path = require('path')
 const PDFDOC  = require('pdfkit')
 const Order=require("../Schemamodules/order")
 const fs = require('fs')
-const stripe=require('stripe')('sk_test_tnz7AmwMJF5zPlvwpQ8HPkMb00ZGt6jnqQ')
+const stripe=require('stripe')('sk_test_xxxxxxxxxxxxxxxxxxxxxxxxx')
 
 //cart routes start here
 

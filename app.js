@@ -85,7 +85,7 @@ var User=require("./Schemamodules/usermod")
 
 app.use(require('express-session')({
 
-    secret: 'Saphilous Supreme',
+    secret: env.SECRET,
 
     resave: false,
 

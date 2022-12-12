@@ -16,7 +16,7 @@
     "csrf": "^1.11.0",
     "csurf": "^1.11.0",
     "ejs": "^3.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.0",
     "express-sessions": "^1.0.6",
     "express-validator": "^6.4.0",
